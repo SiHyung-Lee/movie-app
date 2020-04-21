@@ -1,0 +1,52 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Top = styled.header`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(var(--tmdbDarkBlue), 1);
+    height: 64px;
+    width: 100vw;
+    padding: 0 20px;
+    z-index: 10;
+    transition: top 0.2s linear;
+`;
+
+const Menu = styled.ul`
+    display: flex;
+`;
+
+const MenuItem = styled.li`
+    margin-right: 15px;
+    a {
+        padding: 0.5rem;
+        color: #fff;
+    }
+`;
+
+class Header extends React.Component {
+    render() {
+        return (
+            <Top>
+                <Menu>
+                    <MenuItem>
+                        <Link to="/">Movies</Link>
+                    </MenuItem>
+                    <MenuItem>
+                        <Link to="/tv">TV Shows</Link>
+                    </MenuItem>
+                    <MenuItem>
+                        <Link to="/search">Search</Link>
+                    </MenuItem>
+                </Menu>
+            </Top>
+        );
+    }
+}
+
+export default Header;
