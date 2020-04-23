@@ -16,6 +16,7 @@ const movieApi = {
     upcoming: api.get('movie/upcoming'),
     topRated: api.get('movie/top_rated'),
     popular: api.get('movie/popular'),
+    search: api.get('search/movie')
 };
 
 const tvApi = {
