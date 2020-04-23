@@ -6,11 +6,11 @@ const Container = styled.div``;
 const Lists = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 `;
 
 const List = styled.li`
     width: 200px;
-    margin-right: 30px;
     margin-bottom: 30px;
     background: #fff;
     border-radius: 10px;
@@ -80,7 +80,8 @@ const ListMore = styled.button`
     padding: 10px;
     text-align: center;
     background: none;
-    border: 1px solid #eee;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
     text-transform: uppercase;
 `;
 

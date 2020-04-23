@@ -8,7 +8,8 @@ import Search from '../Routes/Search/SearchContainer';
 
 const Contents = styled.article`
     width: 100%;
-    padding: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
 `;
 
 class Routes extends React.Component {

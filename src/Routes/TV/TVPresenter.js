@@ -6,11 +6,11 @@ const Container = styled.div``;
 const Lists = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 `;
 
 const List = styled.li`
     width: 200px;
-    margin-right: 30px;
     margin-top: 30px;
     background: #fff;
     border-radius: 10px;
@@ -82,6 +82,8 @@ class TVPresenter extends React.Component {
             error,
             loading,
         } = this.props;
+
+        console.log(this.props);
         return (
             <>
                 {loading ? (
@@ -95,12 +97,12 @@ class TVPresenter extends React.Component {
                                     <Poster>
                                         <img
                                             src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
-                                            alt={item.title}
+                                            alt={item.name}
                                         />
                                     </Poster>
                                     <Desc>
-                                        <strong>{item.title}</strong>
-                                        <p>{item.release_date}</p>
+                                        <strong>{item.name}</strong>
+                                        <p>{item.first_air_date}</p>
                                         <span>{item.vote_average * 10}</span>
                                     </Desc>
                                 </List>
@@ -113,12 +115,12 @@ class TVPresenter extends React.Component {
                                     <Poster>
                                         <img
                                             src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
-                                            alt={item.title}
+                                            alt={item.name}
                                         />
                                     </Poster>
                                     <Desc>
-                                        <strong>{item.title}</strong>
-                                        <p>{item.release_date}</p>
+                                        <strong>{item.name}</strong>
+                                        <p>{item.first_air_date}</p>
                                         <span>{item.vote_average * 10}</span>
                                     </Desc>
                                 </List>
@@ -131,12 +133,12 @@ class TVPresenter extends React.Component {
                                     <Poster>
                                         <img
                                             src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
-                                            alt={item.title}
+                                            alt={item.name}
                                         />
                                     </Poster>
                                     <Desc>
-                                        <strong>{item.title}</strong>
-                                        <p>{item.release_date}</p>
+                                        <strong>{item.name}</strong>
+                                        <p>{item.first_air_date}</p>
                                         <span>{item.vote_average * 10}</span>
                                     </Desc>
                                 </List>
@@ -149,12 +151,12 @@ class TVPresenter extends React.Component {
                                     <Poster>
                                         <img
                                             src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
-                                            alt={item.title}
+                                            alt={item.name}
                                         />
                                     </Poster>
                                     <Desc>
-                                        <strong>{item.title}</strong>
-                                        <p>{item.release_date}</p>
+                                        <strong>{item.name}</strong>
+                                        <p>{item.first_air_date}</p>
                                         <span>{item.vote_average * 10}</span>
                                     </Desc>
                                 </List>
