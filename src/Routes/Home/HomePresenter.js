@@ -4,14 +4,13 @@ import styled from 'styled-components';
 const Container = styled.div``;
 
 const Lists = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
 `;
 
 const List = styled.li`
-    width: 200px;
-    margin-bottom: 30px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -27,15 +26,16 @@ const Title = styled.h2`
 `;
 
 const Poster = styled.div`
-    height: 300px;
     img {
         vertical-align: top;
+        width:100%;
         height: 100%;
+        object-fit: cover;
     }
 `;
 
 const Desc = styled.div`
-    padding: 26px 10px 12px;
+    padding: 26px 15px 12px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -54,7 +54,7 @@ const Desc = styled.div`
     span {
         position: absolute;
         top: -19px;
-        left: 10px;
+        left: 12px;
         width: 38px;
         height: 38px;
         padding: 2px;
