@@ -8,6 +8,7 @@ api.interceptors.request.use((config) => {
     config.params = config.params || {};
     config.params['api_key'] = 'df2d4dee44d982356f572c174844005c';
     config.params['language'] = 'en-US';
+    config.params['page'] = 1;
     return config;
 });
 

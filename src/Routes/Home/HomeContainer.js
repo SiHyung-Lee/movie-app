@@ -10,9 +10,10 @@ class HomeContainer extends React.Component {
         topRated: null,
         error: null,
         loading: true,
+        currentPage: 1
     };
 
-    componentDidMount = async () => {
+    handleLoadMovies = async () => {
         try {
             const {
                 data: { results: nowPlaying },
@@ -45,7 +46,12 @@ class HomeContainer extends React.Component {
                 loading: false,
             });
         }
+    }
+
+    componentDidMount = async () => {
+        this.handleLoadMovies();
     };
+
     render() {
         const {
             nowPlaying,

@@ -92,7 +92,7 @@ class TVPresenter extends React.Component {
             airingToday,
             popular,
             topRated,
-            error,
+            //error,
             loading,
         } = this.props;
 

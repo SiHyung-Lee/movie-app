@@ -92,7 +92,7 @@ class HomePresenter extends React.Component {
             upcoming,
             popular,
             topRated,
-            error,
+            //error,
             loading,
         } = this.props;
         return (
