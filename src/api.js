@@ -17,7 +17,18 @@ const movieApi = {
     upcoming: api.get('movie/upcoming'),
     topRated: api.get('movie/top_rated'),
     popular: api.get('movie/popular'),
-    search: api.get('search/movie')
+    movieDetail: (id) =>
+        api.get(`movie/${id}`, {
+            params: {
+                append_to_response: 'videos',
+            },
+        }),
+    search: (term) =>
+        api.get('search/movie', {
+            params: {
+                query: term,
+            },
+        }),
 };
 
 const tvApi = {

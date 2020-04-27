@@ -10,7 +10,6 @@ class HomeContainer extends React.Component {
         topRated: null,
         error: null,
         loading: true,
-        currentPage: 1
     };
 
     handleLoadMovies = async () => {
@@ -46,7 +45,7 @@ class HomeContainer extends React.Component {
                 loading: false,
             });
         }
-    }
+    };
 
     componentDidMount = async () => {
         this.handleLoadMovies();
