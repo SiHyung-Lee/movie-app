@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Top = styled.header`
@@ -29,24 +29,18 @@ const MenuItem = styled.li`
     }
 `;
 
-class Header extends React.Component {
-    render() {
-        return (
-            <Top>
-                <Menu>
-                    <MenuItem>
-                        <Link to="/">Movies</Link>
-                    </MenuItem>
-                    <MenuItem>
-                        <Link to="/tv">TV Shows</Link>
-                    </MenuItem>
-                    <MenuItem>
-                        <Link to="/search">Search</Link>
-                    </MenuItem>
-                </Menu>
-            </Top>
-        );
-    }
-}
-
-export default Header;
+export default withRouter(({ location: { pathname } }) => (
+    <Top>
+        <Menu>
+            <MenuItem>
+                <Link to="/">Movies</Link>
+            </MenuItem>
+            <MenuItem>
+                <Link to="/tv">TV Shows</Link>
+            </MenuItem>
+            <MenuItem>
+                <Link to="/search">Search</Link>
+            </MenuItem>
+        </Menu>
+    </Top>
+));

@@ -47,9 +47,9 @@ class HomeContainer extends React.Component {
         }
     };
 
-    componentDidMount = async () => {
+    componentDidMount() {
         this.handleLoadMovies();
-    };
+    }
 
     render() {
         const {
