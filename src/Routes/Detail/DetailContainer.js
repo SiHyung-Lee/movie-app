@@ -4,31 +4,38 @@ import { movieApi } from '../../api';
 
 class DetailContainer extends React.Component {
     state = {
-        pathname: null,
+        result: null,
         loading: true,
+        result: null,
     };
-    componentDidMount = async () => {
-        try {
-            const {
-                data: { location: pathname },
-            } = await movieApi.movieDetail;
 
+    componentDidMount = async () => {
+        const {
+            match: {
+                params: { id },
+            },
+            history: { push },
+            location: { pathname },
+        } = this.props;
+        const parseId = parseInt(id);
+        this.isMovie = pathname.includes('/movie/');
+        try {
+            const request = await movieApi.movieDetail(parseId);
+            let result = request.data;
             this.setState({
-                pathname,
+                result,
             });
         } catch {
-            this.setState({
-                error: "Can't find movie information",
-            });
+            console.log('aaaaa');
         } finally {
-            this.setState({
-                loading: false,
-            });
+            console.log('end');
         }
     };
+
     render() {
-        console.log(this.props);
-        return <></>;
+        //console.log(this.state.movieDetail);
+        const { result } = this.state;
+        return <DetailPresenter result={result} />;
     }
 }
 

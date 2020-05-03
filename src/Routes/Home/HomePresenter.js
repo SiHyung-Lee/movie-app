@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div``;
@@ -106,19 +107,21 @@ class HomePresenter extends React.Component {
                             <Lists>
                                 {nowPlaying.map((item, idx) => (
                                     <List key={idx}>
-                                        <Poster>
-                                            <img
-                                                src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
-                                                alt={item.title}
-                                            />
-                                        </Poster>
-                                        <Desc>
-                                            <strong>{item.title}</strong>
-                                            <p>{item.release_date}</p>
-                                            <span>
-                                                {item.vote_average * 10}
-                                            </span>
-                                        </Desc>
+                                        <Link to={`/movie/${item.id}`}>
+                                            <Poster>
+                                                <img
+                                                    src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
+                                                    alt={item.title}
+                                                />
+                                            </Poster>
+                                            <Desc>
+                                                <strong>{item.title}</strong>
+                                                <p>{item.release_date}</p>
+                                                <span>
+                                                    {item.vote_average * 10}
+                                                </span>
+                                            </Desc>
+                                        </Link>
                                     </List>
                                 ))}
                             </Lists>

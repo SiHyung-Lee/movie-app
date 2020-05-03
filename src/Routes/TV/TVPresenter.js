@@ -96,7 +96,6 @@ class TVPresenter extends React.Component {
             loading,
         } = this.props;
 
-        console.log(this.props);
         return (
             <>
                 {loading ? (
