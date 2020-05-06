@@ -4,9 +4,13 @@ import { movieApi } from '../../api';
 
 class DetailContainer extends React.Component {
     state = {
-        result: null,
+        title: '',
+        overview: '',
+        release: '',
+        average: 0,
+        genres: '',
+        poster: '',
         loading: true,
-        result: null,
     };
 
     componentDidMount = async () => {
@@ -22,20 +26,46 @@ class DetailContainer extends React.Component {
         try {
             const request = await movieApi.movieDetail(parseId);
             let result = request.data;
+            console.log(result);
             this.setState({
-                result,
+                title: result.title,
+                overview: result.overview,
+                release: result.release_date,
+                average: result.vote_average,
+                genres: result.genres,
+                poster: result.poster_path,
             });
+            console.log(this.state.title);
         } catch {
             console.log('aaaaa');
         } finally {
-            console.log('end');
+            this.setState({
+                loading: false,
+            });
         }
     };
 
     render() {
-        //console.log(this.state.movieDetail);
-        const { result } = this.state;
-        return <DetailPresenter result={result} />;
+        const {
+            title,
+            overview,
+            release,
+            average,
+            genres,
+            poster,
+            loading,
+        } = this.state;
+        return (
+            <DetailPresenter
+                title={title}
+                overview={overview}
+                release={release}
+                average={average}
+                genres={genres}
+                poster={poster}
+                loading={loading}
+            />
+        );
     }
 }
 

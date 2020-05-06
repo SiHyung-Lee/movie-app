@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div``;
@@ -29,7 +29,7 @@ const Title = styled.h2`
 const Poster = styled.div`
     img {
         vertical-align: top;
-        width:100%;
+        width: 100%;
         height: 100%;
         object-fit: cover;
     }
@@ -104,6 +104,7 @@ class HomePresenter extends React.Component {
                     <>
                         <Container>
                             <Title>Now Playing Movies</Title>
+                            {console.log(nowPlaying)}
                             <Lists>
                                 {nowPlaying.map((item, idx) => (
                                     <List key={idx}>
