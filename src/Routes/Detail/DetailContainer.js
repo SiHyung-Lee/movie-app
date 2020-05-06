@@ -26,7 +26,6 @@ class DetailContainer extends React.Component {
         try {
             const request = await movieApi.movieDetail(parseId);
             let result = request.data;
-            console.log(result);
             this.setState({
                 title: result.title,
                 overview: result.overview,
@@ -35,7 +34,6 @@ class DetailContainer extends React.Component {
                 genres: result.genres,
                 poster: result.poster_path,
             });
-            console.log(this.state.title);
         } catch {
             console.log('aaaaa');
         } finally {

@@ -104,7 +104,6 @@ class HomePresenter extends React.Component {
                     <>
                         <Container>
                             <Title>Now Playing Movies</Title>
-                            {console.log(nowPlaying)}
                             <Lists>
                                 {nowPlaying.map((item, idx) => (
                                     <List key={idx}>

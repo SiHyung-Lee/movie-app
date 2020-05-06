@@ -28,7 +28,7 @@ const Title = styled.h2`
 const Poster = styled.div`
     img {
         vertical-align: top;
-        width:100%;
+        width: 100%;
         height: 100%;
         object-fit: cover;
     }
@@ -116,7 +116,9 @@ class TVPresenter extends React.Component {
                                         <Desc>
                                             <strong>{item.name}</strong>
                                             <p>{item.first_air_date}</p>
-                                            <span>{item.vote_average * 10}</span>
+                                            <span>
+                                                {item.vote_average * 10}
+                                            </span>
                                         </Desc>
                                     </List>
                                 ))}
@@ -137,7 +139,9 @@ class TVPresenter extends React.Component {
                                         <Desc>
                                             <strong>{item.name}</strong>
                                             <p>{item.first_air_date}</p>
-                                            <span>{item.vote_average * 10}</span>
+                                            <span>
+                                                {item.vote_average * 10}
+                                            </span>
                                         </Desc>
                                     </List>
                                 ))}
@@ -158,7 +162,9 @@ class TVPresenter extends React.Component {
                                         <Desc>
                                             <strong>{item.name}</strong>
                                             <p>{item.first_air_date}</p>
-                                            <span>{item.vote_average * 10}</span>
+                                            <span>
+                                                {item.vote_average * 10}
+                                            </span>
                                         </Desc>
                                     </List>
                                 ))}
@@ -179,7 +185,9 @@ class TVPresenter extends React.Component {
                                         <Desc>
                                             <strong>{item.name}</strong>
                                             <p>{item.first_air_date}</p>
-                                            <span>{item.vote_average * 10}</span>
+                                            <span>
+                                                {item.vote_average * 10}
+                                            </span>
                                         </Desc>
                                     </List>
                                 ))}
