@@ -3,13 +3,21 @@ import styled from 'styled-components';
 
 const Header = styled.div`
     padding: 30px 40px;
+    margin: 0 -50px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    background-image: url(${`https://image.tmdb.org/t/p/w500/${poster}`});
+    background-color: #000;
 `;
 
-const Poster = styled.div``;
+const Poster = styled.div`
+    width: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    img {
+        width: 100%;
+    }
+`;
 
 const Description = styled.div``;
 
@@ -40,7 +48,10 @@ class DetailPresenter extends React.Component {
                 {loading ? (
                     'loading'
                 ) : (
-                    <Header>
+                    <Header
+                        style={{
+                            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster})`,
+                        }}>
                         <Poster>
                             <img
                                 src={`https://image.tmdb.org/t/p/w500/${poster}`}
