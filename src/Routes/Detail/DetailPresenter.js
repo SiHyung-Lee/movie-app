@@ -2,15 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Header = styled.div`
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-gap: 40px;
     padding: 30px 40px;
     margin: 0 -50px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    // background-color: #000;
+    background-color: #000;
+    color: #fff;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            to right,
+            rgba(13.73%, 18.04%, 14.9%, 1) 150px,
+            rgba(21.96%, 23.53%, 22.35%, 0.84) 100%
+        );
+    }
 `;
 
 const Poster = styled.div`
+    position: relative;
     width: 300px;
     overflow: hidden;
     border-radius: 10px;
@@ -19,11 +37,32 @@ const Poster = styled.div`
     }
 `;
 
-const Description = styled.div``;
+const Description = styled.div`
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+    line-height: 1.4;
+`;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+    width: 100%;
+    font-size: 35px;
+`;
 
-const Genres = styled.span``;
+const Subtitle = styled.h2`
+    width: 100%;
+    margin: 20px 0 8px;
+    font-size: 20px;
+`;
+
+const Genres = styled.span`
+    span {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+`;
 
 const Release = styled.span``;
 
@@ -59,6 +98,7 @@ class DetailPresenter extends React.Component {
                                 ))}
                             </Genres>
                             <Average>{result.vote_average}</Average>
+                            <Subtitle>Overview</Subtitle>
                             <Overview>{result.overview}</Overview>
                         </Description>
                     </Header>
