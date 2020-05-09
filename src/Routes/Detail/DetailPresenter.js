@@ -7,7 +7,7 @@ const Header = styled.div`
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    background-color: #000;
+    // background-color: #000;
 `;
 
 const Poster = styled.div`
@@ -33,16 +33,8 @@ const Overview = styled.p``;
 
 class DetailPresenter extends React.Component {
     render() {
-        const {
-            title,
-            overview,
-            release,
-            average,
-            genres,
-            poster,
-            loading,
-        } = this.props;
-        console.log(loading, poster);
+        const { result, loading } = this.props;
+        console.log(loading, result);
         return (
             <>
                 {loading ? (
@@ -50,24 +42,24 @@ class DetailPresenter extends React.Component {
                 ) : (
                     <Header
                         style={{
-                            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster})`,
+                            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${result.poster_path})`,
                         }}>
                         <Poster>
                             <img
-                                src={`https://image.tmdb.org/t/p/w500/${poster}`}
+                                src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
                                 alt=""
                             />
                         </Poster>
                         <Description>
-                            <Title>{title}</Title>
-                            <Release>{release}</Release>
+                            <Title>{result.title}</Title>
+                            <Release>{result.release_date}</Release>
                             <Genres>
-                                {genres.map((item, idx) => (
+                                {result.genres.map((item, idx) => (
                                     <span key={idx}>{item.name}</span>
                                 ))}
                             </Genres>
-                            <Average>{average}</Average>
-                            <Overview>{overview}</Overview>
+                            <Average>{result.vote_average}</Average>
+                            <Overview>{result.overview}</Overview>
                         </Description>
                     </Header>
                 )}
