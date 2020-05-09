@@ -5,6 +5,7 @@ import { movieApi } from '../../api';
 class DetailContainer extends React.Component {
     state = {
         result: '',
+        creditsResult: '',
         loading: true,
     };
 
@@ -16,13 +17,19 @@ class DetailContainer extends React.Component {
             history: { push },
             location: { pathname },
         } = this.props;
+
         const parseId = parseInt(id);
         this.isMovie = pathname.includes('/movie/');
+
         try {
             const request = await movieApi.detail(parseId);
             let result = request.data;
+            const creditsRequest = await movieApi.credits(parseId);
+            let creditsResult = creditsRequest;
+            //console.log(creditsRequest);
             this.setState({
                 result,
+                creditsResult,
             });
         } catch {
             console.log('aaaaa');
@@ -34,9 +41,15 @@ class DetailContainer extends React.Component {
     };
 
     render() {
-        const { result, loading } = this.state;
-        console.log(result);
-        return <DetailPresenter result={result} loading={loading} />;
+        const { result, creditsResult, loading } = this.state;
+        //console.log(result);
+        return (
+            <DetailPresenter
+                result={result}
+                creditsResult={creditsResult}
+                loading={loading}
+            />
+        );
     }
 }
 

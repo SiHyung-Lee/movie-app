@@ -5,6 +5,7 @@ const Header = styled.div`
     display: grid;
     grid-template-columns: 300px auto;
     grid-gap: 40px;
+    position: relative;
     padding: 30px 40px;
     margin: 0 -50px;
     background-repeat: no-repeat;
@@ -72,36 +73,43 @@ const Overview = styled.p``;
 
 class DetailPresenter extends React.Component {
     render() {
-        const { result, loading } = this.props;
-        console.log(loading, result);
+        const { result, creditsResult, loading } = this.props;
         return (
             <>
                 {loading ? (
                     'loading'
                 ) : (
-                    <Header
-                        style={{
-                            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${result.poster_path})`,
-                        }}>
-                        <Poster>
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
-                                alt=""
-                            />
-                        </Poster>
-                        <Description>
-                            <Title>{result.title}</Title>
-                            <Release>{result.release_date}</Release>
-                            <Genres>
-                                {result.genres.map((item, idx) => (
-                                    <span key={idx}>{item.name}</span>
-                                ))}
-                            </Genres>
-                            <Average>{result.vote_average}</Average>
-                            <Subtitle>Overview</Subtitle>
-                            <Overview>{result.overview}</Overview>
-                        </Description>
-                    </Header>
+                    <>
+                        {console.log(creditsResult)}
+                        <Header
+                            style={{
+                                backgroundImage: `url(https://image.tmdb.org/t/p/w500/${result.poster_path})`,
+                            }}>
+                            <Poster>
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                                    alt=""
+                                />
+                            </Poster>
+                            <Description>
+                                <Title>{result.title}</Title>
+                                <Release>{result.release_date}</Release>
+                                <Genres>
+                                    {result.genres.map((item, idx) => (
+                                        <span key={idx}>{item.name}</span>
+                                    ))}
+                                </Genres>
+                                <Average>{result.vote_average}</Average>
+                                <Subtitle>Overview</Subtitle>
+                                <Overview>{result.overview}</Overview>
+                            </Description>
+                        </Header>
+                        <ul>
+                            {creditsResult.data.cast.map((who, idx) => (
+                                <li key={idx}>{who.name}</li>
+                            ))}
+                        </ul>
+                    </>
                 )}
             </>
         );
