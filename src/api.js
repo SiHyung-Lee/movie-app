@@ -17,12 +17,13 @@ const movieApi = {
     upcoming: api.get('movie/upcoming'),
     topRated: api.get('movie/top_rated'),
     popular: api.get('movie/popular'),
-    movieDetail: (id) =>
+    detail: (id) =>
         api.get(`movie/${id}`, {
             params: {
                 append_to_response: 'videos',
             },
         }),
+    credits: (id) => api.get(`movie/${id}/credits`),
     search: (term) =>
         api.get('search/movie', {
             params: {

@@ -19,7 +19,7 @@ class DetailContainer extends React.Component {
         const parseId = parseInt(id);
         this.isMovie = pathname.includes('/movie/');
         try {
-            const request = await movieApi.movieDetail(parseId);
+            const request = await movieApi.detail(parseId);
             let result = request.data;
             this.setState({
                 result,
@@ -35,6 +35,7 @@ class DetailContainer extends React.Component {
 
     render() {
         const { result, loading } = this.state;
+        console.log(result);
         return <DetailPresenter result={result} loading={loading} />;
     }
 }
