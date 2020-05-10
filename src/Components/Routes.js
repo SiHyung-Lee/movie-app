@@ -11,6 +11,7 @@ const Contents = styled.article`
     width: 100%;
     padding-left: 50px;
     padding-right: 50px;
+    box-sizing: border-box;
 `;
 
 class Routes extends React.Component {
@@ -19,11 +20,11 @@ class Routes extends React.Component {
             <Router>
                 <Header />
                 <Contents>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/tv" exact component={TV} />
-                    <Route path="/search" exact component={Search} />
-                    <Route path="/movie/:id" component={Detail} />
-                    <Route path="/show/:id" component={Detail} />
+                    <Route path='/' exact component={Home} />
+                    <Route path='/tv' exact component={TV} />
+                    <Route path='/search' exact component={Search} />
+                    <Route path='/movie/:id' component={Detail} />
+                    <Route path='/show/:id' component={Detail} />
                 </Contents>
             </Router>
         );

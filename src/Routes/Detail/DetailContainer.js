@@ -14,6 +14,7 @@ class DetailContainer extends React.Component {
             match: {
                 params: { id },
             },
+
             history: { push },
             location: { pathname },
         } = this.props;
