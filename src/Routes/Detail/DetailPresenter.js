@@ -51,11 +51,16 @@ const Title = styled.h1`
     width: 100%;
     font-size: 35px;
     font-weight: 700;
+    span {
+        margin-left: 5px;
+        font-weight: 300;
+        opacity: 0.8;
+    }
 `;
 
 const Subtitle = styled.h2`
     width: 100%;
-    margin: 20px 0 8px;
+    margin: 10px 0 8px;
     font-size: 20px;
     font-weight: 600;
 `;
@@ -69,6 +74,19 @@ const Sectiontitle = styled.h2`
 
 const Genres = styled.span`
     span {
+        &:after {
+            content: ', ';
+            display: inline;
+        }
+        &:last-child:after {
+            display: none;
+        }
+    }
+    &:before,
+    &:after {
+        font-size: 1.1em;
+        line-height: 1;
+        content: '\\2022';
         margin-right: 10px;
         margin-left: 10px;
     }
@@ -78,9 +96,37 @@ const Release = styled.span``;
 
 const Average = styled.span``;
 
+const Tagline = styled.p`
+    width: 100%;
+    font-size: 17px;
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 20px;
+`;
+
 const Overview = styled.p``;
 
-const Profiles = styled.ul`
+const Crews = styled.ul`
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    > li {
+        width: 33%;
+        flex-basis: 33%;
+        margin-top: 20px;
+        strong {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        span {
+            display: block;
+            font-size: 14px;
+        }
+    }
+`;
+
+const Casts = styled.ul`
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
@@ -112,9 +158,7 @@ const Profiles = styled.ul`
         }
         .character {
             display: block;
-            padding-top: 5px;
-            padding-left: 10px;
-            padding-right: 10px;
+            padding: 5px 10px 15px;
             font-size: 14px;
         }
     }
@@ -129,7 +173,6 @@ class DetailPresenter extends React.Component {
                     'loading'
                 ) : (
                     <>
-                        {console.log(result)}
                         <Header
                             style={{
                                 backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${result.backdrop_path})`,
@@ -142,7 +185,12 @@ class DetailPresenter extends React.Component {
                                 />
                             </Poster>
                             <Description>
-                                <Title>{result.title}</Title>
+                                <Title>
+                                    {result.title}
+                                    <span>
+                                        ({result.release_date.split('-')[0]})
+                                    </span>
+                                </Title>
                                 <Release>{result.release_date}</Release>
                                 <Genres>
                                     {result.genres.map((item, idx) => (
@@ -150,12 +198,26 @@ class DetailPresenter extends React.Component {
                                     ))}
                                 </Genres>
                                 <Average>{result.vote_average}</Average>
+                                <Tagline>{result.tagline}</Tagline>
                                 <Subtitle>Overview</Subtitle>
                                 <Overview>{result.overview}</Overview>
+                                <Crews>
+                                    {creditsResult.data.crew.map((crew, idx) =>
+                                        crew.job === 'Story' ||
+                                        crew.job === 'Director' ? (
+                                            <li key={idx}>
+                                                <strong>{crew.name}</strong>
+                                                <span>{crew.job}</span>
+                                            </li>
+                                        ) : (
+                                            ''
+                                        )
+                                    )}
+                                </Crews>
                             </Description>
                         </Header>
                         <Sectiontitle>Top Billed Cast</Sectiontitle>
-                        <Profiles>
+                        <Casts>
                             {creditsResult.data.cast.map((cast, idx) => (
                                 <li key={idx}>
                                     <span className='thumbnail'>
@@ -176,7 +238,7 @@ class DetailPresenter extends React.Component {
                                     </span>
                                 </li>
                             ))}
-                        </Profiles>
+                        </Casts>
                     </>
                 )}
             </>
