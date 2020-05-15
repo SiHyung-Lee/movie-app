@@ -4,8 +4,9 @@ import { movieApi, tvApi } from '../../api';
 
 class DetailContainer extends React.Component {
     state = {
-        result: '',
-        creditsResult: '',
+        isMovie: true,
+        result: null,
+        creditsResult: null,
         loading: true,
     };
 
@@ -14,25 +15,28 @@ class DetailContainer extends React.Component {
             match: {
                 params: { id },
             },
-
             history: { push },
             location: { pathname },
         } = this.props;
 
         const parseId = parseInt(id);
         this.isMovie = pathname.includes('/movie/');
-        console.log(this.isMovie);
+
         try {
             const request = this.isMovie
                 ? await movieApi.detail(parseId)
                 : await tvApi.detail(parseId);
+
             let result = request.data;
-            const creditsRequest = await movieApi.credits(parseId);
-            // const creditsRequest = this.isMovie
-            //     ? await movieApi.credits(parseId)
-            //     : await tvApi.credits(parseId);
+
+            const creditsRequest = this.isMovie
+                ? await movieApi.credits(parseId)
+                : await tvApi.credits(parseId);
+
             let creditsResult = creditsRequest;
+
             this.setState({
+                isMovie: this.isMovie,
                 result,
                 creditsResult,
             });
@@ -46,10 +50,10 @@ class DetailContainer extends React.Component {
     };
 
     render() {
-        const { result, creditsResult, loading } = this.state;
-        console.log('this.props');
+        const { isMovie, result, creditsResult, loading } = this.state;
         return (
             <DetailPresenter
+                isMovie={isMovie}
                 result={result}
                 creditsResult={creditsResult}
                 loading={loading}

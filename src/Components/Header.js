@@ -35,7 +35,9 @@ export default withRouter(({ location: { pathname } }) => (
             <MenuItem current={pathname === '/' || pathname.includes('/movie')}>
                 <Link to='/'>Movies</Link>
             </MenuItem>
-            <MenuItem current={pathname === '/tv'}>
+            <MenuItem
+                current={pathname === '/tv' || pathname.includes('/show')}
+            >
                 <Link to='/tv'>TV Shows</Link>
             </MenuItem>
             <MenuItem current={pathname === '/search'}>

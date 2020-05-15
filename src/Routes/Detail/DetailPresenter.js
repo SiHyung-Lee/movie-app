@@ -166,8 +166,7 @@ const Casts = styled.ul`
 
 class DetailPresenter extends React.Component {
     render() {
-        const { result, creditsResult, loading } = this.props;
-        console.log(this.props);
+        const { isMovie, result, creditsResult, loading } = this.props;
         return (
             <>
                 {loading ? (
@@ -177,7 +176,8 @@ class DetailPresenter extends React.Component {
                         <Header
                             style={{
                                 backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${result.backdrop_path})`,
-                            }}>
+                            }}
+                        >
                             <Poster>
                                 <img
                                     src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
@@ -186,22 +186,32 @@ class DetailPresenter extends React.Component {
                             </Poster>
                             <Description>
                                 <Title>
-                                    {result.title}
-                                    {/* <span>
-                                        ({result.release_date.split('-')[0]})
-                                    </span> */}
+                                    {isMovie ? result.title : result.name}
+                                    <span>
+                                        (
+                                        {isMovie
+                                            ? result.release_date.split('-')[0]
+                                            : result.last_air_date.split(
+                                                  '-'
+                                              )[0]}
+                                        )
+                                    </span>
                                 </Title>
-                                <Release>{result.release_date}</Release>
-                                {/* <Genres>
+                                <Release>
+                                    {isMovie
+                                        ? result.release_date
+                                        : result.last_air_date}
+                                </Release>
+                                <Genres>
                                     {result.genres.map((item, idx) => (
                                         <span key={idx}>{item.name}</span>
                                     ))}
-                                </Genres> */}
+                                </Genres>
                                 <Average>{result.vote_average}</Average>
                                 <Tagline>{result.tagline}</Tagline>
                                 <Subtitle>Overview</Subtitle>
                                 <Overview>{result.overview}</Overview>
-                                {/* <Crews>
+                                <Crews>
                                     {creditsResult.data.crew.map((crew, idx) =>
                                         crew.job === 'Story' ||
                                         crew.job === 'Director' ? (
@@ -213,11 +223,11 @@ class DetailPresenter extends React.Component {
                                             ''
                                         )
                                     )}
-                                </Crews> */}
+                                </Crews>
                             </Description>
                         </Header>
                         <Sectiontitle>Top Billed Cast</Sectiontitle>
-                        {/* <Casts>
+                        <Casts>
                             {creditsResult.data.cast.map((cast, idx) => (
                                 <li key={idx}>
                                     <span className='thumbnail'>
@@ -238,7 +248,7 @@ class DetailPresenter extends React.Component {
                                     </span>
                                 </li>
                             ))}
-                        </Casts> */}
+                        </Casts>
                     </>
                 )}
             </>

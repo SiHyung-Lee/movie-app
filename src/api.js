@@ -43,7 +43,7 @@ const tvApi = {
                 append_to_response: 'videos',
             },
         }),
-    //credits: (id) => api.get(`tv/${id}/credits`),
+    credits: (id) => api.get(`tv/${id}/credits`),
 };
 
 export { movieApi, tvApi };

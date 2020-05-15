@@ -55,7 +55,6 @@ class TVPresenter extends React.Component {
                     'loading'
                 ) : (
                     <>
-                        {console.log(this.props)}
                         <Container>
                             <Title>Currently Airing TV Shows</Title>
                             <Lists>
