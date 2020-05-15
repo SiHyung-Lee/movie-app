@@ -52,9 +52,9 @@ const Desc = styled.div`
 
 class Poster extends React.Component {
     render() {
-        const { id, title, poster, release, vote } = this.props;
+        const { id, media, title, poster, release, vote } = this.props;
         return (
-            <Link to={`/movie/${id}`}>
+            <Link to={`/${media}/${id}`}>
                 <Thumbnail>
                     <img
                         src={`https://image.tmdb.org/t/p/w200${poster}`}

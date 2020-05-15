@@ -1,6 +1,6 @@
 import React from 'react';
 import DetailPresenter from './DetailPresenter';
-import { movieApi } from '../../api';
+import { movieApi, tvApi } from '../../api';
 
 class DetailContainer extends React.Component {
     state = {
@@ -21,13 +21,17 @@ class DetailContainer extends React.Component {
 
         const parseId = parseInt(id);
         this.isMovie = pathname.includes('/movie/');
-
+        console.log(this.isMovie);
         try {
-            const request = await movieApi.detail(parseId);
+            const request = this.isMovie
+                ? await movieApi.detail(parseId)
+                : await tvApi.detail(parseId);
             let result = request.data;
             const creditsRequest = await movieApi.credits(parseId);
+            // const creditsRequest = this.isMovie
+            //     ? await movieApi.credits(parseId)
+            //     : await tvApi.credits(parseId);
             let creditsResult = creditsRequest;
-            //console.log(creditsRequest);
             this.setState({
                 result,
                 creditsResult,
@@ -43,7 +47,7 @@ class DetailContainer extends React.Component {
 
     render() {
         const { result, creditsResult, loading } = this.state;
-        //console.log(result);
+        console.log('this.props');
         return (
             <DetailPresenter
                 result={result}

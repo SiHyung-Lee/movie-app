@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Poster from '../../Components/Poster';
 
@@ -62,6 +61,7 @@ class HomePresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
+                                            media={'movie'}
                                             title={item.title}
                                             poster={item.poster_path}
                                             release={item.release_date}
@@ -79,6 +79,7 @@ class HomePresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
+                                            media={'movie'}
                                             title={item.title}
                                             poster={item.poster_path}
                                             release={item.release_date}
@@ -96,6 +97,7 @@ class HomePresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
+                                            media={'movie'}
                                             title={item.title}
                                             poster={item.poster_path}
                                             release={item.release_date}
@@ -113,6 +115,7 @@ class HomePresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
+                                            media={'movie'}
                                             title={item.title}
                                             poster={item.poster_path}
                                             release={item.release_date}

@@ -37,6 +37,13 @@ const tvApi = {
     airingToday: api.get('tv/airing_today'),
     topRated: api.get('tv/top_rated'),
     popular: api.get('tv/popular'),
+    detail: (id) =>
+        api.get(`tv/${id}`, {
+            params: {
+                append_to_response: 'videos',
+            },
+        }),
+    //credits: (id) => api.get(`tv/${id}/credits`),
 };
 
 export { movieApi, tvApi };
