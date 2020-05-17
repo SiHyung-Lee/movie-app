@@ -44,6 +44,12 @@ const tvApi = {
             },
         }),
     credits: (id) => api.get(`tv/${id}/credits`),
+    search: (term) =>
+        api.get('search/tv', {
+            params: {
+                query: term,
+            },
+        }),
 };
 
 export { movieApi, tvApi };

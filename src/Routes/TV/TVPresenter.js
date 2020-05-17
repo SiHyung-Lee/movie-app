@@ -62,7 +62,7 @@ class TVPresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
-                                            media={'show'}
+                                            categ={'show'}
                                             title={item.name}
                                             poster={item.poster_path}
                                             release={item.first_air_date}
@@ -80,7 +80,7 @@ class TVPresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
-                                            media={'show'}
+                                            categ={'show'}
                                             title={item.name}
                                             poster={item.poster_path}
                                             release={item.first_air_date}
@@ -98,7 +98,7 @@ class TVPresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
-                                            media={'show'}
+                                            categ={'show'}
                                             title={item.name}
                                             poster={item.poster_path}
                                             release={item.first_air_date}
@@ -116,7 +116,7 @@ class TVPresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
-                                            media={'show'}
+                                            categ={'show'}
                                             title={item.name}
                                             poster={item.poster_path}
                                             release={item.first_air_date}

@@ -12,7 +12,8 @@ const Top = styled.header`
     background-color: #000;
     height: 64px;
     width: 100vw;
-    padding: 0 20px;
+    padding: 0 50px;
+    box-sizing: border-box;
     z-index: 10;
     transition: top 0.2s linear;
 `;

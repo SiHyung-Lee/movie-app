@@ -6,7 +6,7 @@ const Header = styled.div`
     grid-template-columns: 300px auto;
     grid-gap: 40px;
     position: relative;
-    padding: 30px 40px;
+    padding: 30px 50px;
     margin: 0 -50px;
     background-repeat: no-repeat;
     background-position: 50% 50%;

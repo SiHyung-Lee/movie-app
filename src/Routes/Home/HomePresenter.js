@@ -61,7 +61,7 @@ class HomePresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
-                                            media={'movie'}
+                                            category={'movie'}
                                             title={item.title}
                                             poster={item.poster_path}
                                             release={item.release_date}
@@ -79,7 +79,7 @@ class HomePresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
-                                            media={'movie'}
+                                            category={'movie'}
                                             title={item.title}
                                             poster={item.poster_path}
                                             release={item.release_date}
@@ -97,7 +97,7 @@ class HomePresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
-                                            media={'movie'}
+                                            category={'movie'}
                                             title={item.title}
                                             poster={item.poster_path}
                                             release={item.release_date}
@@ -115,7 +115,7 @@ class HomePresenter extends React.Component {
                                     <List key={idx}>
                                         <Poster
                                             id={item.id}
-                                            media={'movie'}
+                                            category={'movie'}
                                             title={item.title}
                                             poster={item.poster_path}
                                             release={item.release_date}
