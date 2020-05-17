@@ -7,6 +7,7 @@ class Search extends React.Component {
         searchTerm: '',
         movieResults: null,
         tvResults: null,
+        error: '',
         loading: true,
     };
 
@@ -19,19 +20,28 @@ class Search extends React.Component {
     handleSubmitSearch = async (event) => {
         event.preventDefault();
 
-        const {
-            data: { results: movieResults },
-        } = await movieApi.search(this.state.searchTerm);
+        try {
+            const {
+                data: { results: movieResults },
+            } = await movieApi.search(this.state.searchTerm);
 
-        const {
-            data: { results: tvResults },
-        } = await tvApi.search(this.state.searchTerm);
+            const {
+                data: { results: tvResults },
+            } = await tvApi.search(this.state.searchTerm);
 
-        this.setState({
-            movieResults,
-            tvResults,
-            loading: false,
-        });
+            this.setState({
+                movieResults,
+                tvResults,
+            });
+        } catch {
+            this.setState({
+                error: "Can't find results",
+            });
+        } finally {
+            this.setState({
+                loading: false,
+            });
+        }
     };
 
     render() {
