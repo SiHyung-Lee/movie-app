@@ -5,7 +5,8 @@ React로 구현한 영화 정보 사이트
 
 ## 사용 기술
 
-HTML, CSS, Javascript, React, styled-components, axios
+-   Frontend : HTML, CSS, Javascript, React, styled-components, axios
+-   Movie API : https://www.themoviedb.org/documentation/api
 
 ## 구성
 
