@@ -1,6 +1,7 @@
 # 영화 정보 사이트
 
-React로 구현한 영화 정보 사이트
+React로 구현한 영화 정보 사이트  
+데모 : https://movie-app-ten-delta.vercel.app
 
 ## 사용 기술
 
